@@ -6,7 +6,6 @@ docker build -t gaoyuanliang/jessica_datastream_docker:1.0.1 .
 
 docker run -it \
 -m 10g \
--v /Users/Jim/Downloads/:/Users/Jim/Downloads/ \
 -p 5601:5601 \
 -p 9200:9200 \
 gaoyuanliang/jessica_datastream_docker:1.0.1 \
