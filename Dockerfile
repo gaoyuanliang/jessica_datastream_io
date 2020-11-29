@@ -22,24 +22,24 @@ USER jessica
 ###downalod the kibana and elasticsearch files
 
 WORKDIR /jessica/
-RUN wget https://artifacts.elastic.co/downloads/kibana/kibana-6.7.1-linux-x86_64.tar.gz
-RUN tar xvzf kibana-6.7.1-linux-x86_64.tar.gz
+RUN wget https://artifacts.elastic.co/downloads/kibana/kibana-5.6.1-linux-x86_64.tar.gz
+RUN tar xvzf kibana-5.6.1-linux-x86_64.tar.gz
 
 WORKDIR /jessica/
-RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.1.tar.gz
-RUN tar xvzf elasticsearch-6.7.1.tar.gz
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.1.tar.gz
+RUN tar xvzf elasticsearch-5.6.1.tar.gz
 
 EXPOSE 5601/tcp
 EXPOSE 9200/tcp
 
 ####configur
-RUN echo "server.port: 5601" > /jessica/kibana-6.7.1-linux-x86_64/config/kibana.yml
-RUN echo "server.host: \"0.0.0.0\"" >> /jessica/kibana-6.7.1-linux-x86_64/config/kibana.yml
+RUN echo "server.port: 5601" > /jessica/kibana-5.6.1-linux-x86_64/config/kibana.yml
+RUN echo "server.host: \"0.0.0.0\"" >> /jessica/kibana-5.6.1-linux-x86_64/config/kibana.yml
 
-RUN echo "transport.host: localhost" > /jessica/elasticsearch-6.7.1/config/elasticsearch.yml
-RUN echo "transport.tcp.port: 9300" >> /jessica/elasticsearch-6.7.1/config/elasticsearch.yml
-RUN echo "http.port: 9200" >> /jessica/elasticsearch-6.7.1/config/elasticsearch.yml
-RUN echo "network.host: 0.0.0.0" >> /jessica/elasticsearch-6.7.1/config/elasticsearch.yml
+RUN echo "transport.host: localhost" > /jessica/elasticsearch-5.6.1/config/elasticsearch.yml
+RUN echo "transport.tcp.port: 9300" >> /jessica/elasticsearch-5.6.1/config/elasticsearch.yml
+RUN echo "http.port: 9200" >> /jessica/elasticsearch-5.6.1/config/elasticsearch.yml
+RUN echo "network.host: 0.0.0.0" >> /jessica/elasticsearch-5.6.1/config/elasticsearch.yml
 
 ####
 USER root
